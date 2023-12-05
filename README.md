@@ -32,10 +32,6 @@
 
 **Front-end:** HTML, CSS, JAVASCRIPT
 
-**Back-end:** PHP, MYSQL
-
-
 ## Demonstração
 
 
-https://jsrgodoy.github.io/projeto_koffie
