@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/pedido.css" />
+  <link rel="stylesheet" href="css/font-awesome.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.css" />
+  <link rel="icon" type="image/x-icon" href="src/favicon.png">
+  <title>Pedido</title>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <a href="home.html">
+        <div class="logo"></div>
+      </a>
+      <div class="menu">
+        <nav class="menu-itens">
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </nav>
+        <div class="account">
+          <img onclick="abre()" class="user-profile" src="src/user-profle.png" alt="Cadastro" />
+          <svg onclick="abre()" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 492 492">
+            <path
+              d="M484.13 124.99l-16.11-16.23a26.72 26.72 0 00-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 000 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 00492 144.1c0-7.2-2.8-14.06-7.87-19.12z">
+            </path>
+          </svg>
+        </div>
+        <div>
+          <a href="pedido.html">
+            <div id="cart" class="cart" data-totalitems="">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="menu-mobile">
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+
+        <ul class="menu-mobile-itens">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="contato.html">Contato</a></li>
+          <li><a onclick="abre()">Login</a></li>
+          <li><a href="pedido.html">Carrinho</a></li>
+        </ul>
+      </div>
+
+      <div class="login-form">
+        <form action="">
+          <h1>Acesso</h1>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Usuário " id="UserName" required />
+            <i class="fa fa-user"></i>
+            <p id="username-helper" class="helper-text"></p>
+          </div>
+          <div class="form-group log-status">
+            <input type="password" class="form-control" placeholder="Senha" id="Password" />
+            <i class="fa fa-lock"></i>
+            <p id="senha-helper" class="helper-text"></p>
+          </div>
+          <a class="link" href="#">Perdeu sua senha?</a>
+          <button type="button" class="log-btn">Acessar</button>
+        </form>
+      </div>
+    </div>
+    <!--container-->
+
+    <div class="clear"></div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="titulo-pedido">
+        <span class="texto-pedido">COMPLETE SEU PEDIDO</span>
+      </div>
+      <section class="pedido">
+        <div class="box1">
+          <form action="confirmar-pedido.html">
+            <div class="box1-parte1">
+              <img src="src/icon-park-solid_local.svg" alt="Localização" />
+              <div>
+                <h1>Endereço de entrega</h1>
+                <p>Informe o endereço onde deseja receber seu pedido</p>
+              </div>
+            </div>
+            <div class="box1-parte2">
+              <div class="endereco-entrega">
+                <div id="mensagemErro" style="color: red;"></div>
+                <label for="endereco">Endereço*</label>
+                <input type="text" name="endereco" id="endereco" autofocus required />
+                <label for="numero">Número*</label>
+                <input type="number" name="numero" id="numero" required />
+                <label for="cidade">Cidade*</label>
+                <input type="text" name="cidade" id="cidade" required />
+                <label for="estado">Estado*</label>
+                <select id="estado" name="estado" required>
+                  <option value="" disabled selected>Selecione</option>
+                  <option value="Alagoas">Alagoas</option>
+                  <option value="Amapá">Amapá</option>
+                  <option value="Amazonas">Amazonas</option>
+                  <option value="Bahia">Bahia</option>
+                  <option value="Ceará">Ceará</option>
+                  <option value="Distrito Federal">Distrito Federal</option>
+                  <option value="Espírito Santo">Espírito Santo</option>
+                  <option value="Goiás">Goiás</option>
+                  <option value="Maranhão">Maranhão</option>
+                  <option value="Mato Grosso">Mato Grosso</option>
+                  <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                  <option value="Minas Gerais">Minas Gerais</option>
+                  <option value="Pará">Pará</option>
+                  <option value="Paraíba">Paraíba</option>
+                  <option value="Paraná">Paraná</option>
+                  <option value="Pernambuco">Pernambuco</option>
+                  <option value="Piauí">Piauí</option>
+                  <option value="Rio de Janeiro">Rio de Janeiro</option>
+                  <option value="Rio Grande do Norte">
+                    Rio Grande do Norte
+                  </option>
+                  <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                  <option value="Rondônia">Rondônia</option>
+                  <option value="Roraima">Roraima</option>
+                  <option value="Santa Catarina">Santa Catarina</option>
+                  <option value="São Paulo">São Paulo</option>
+                  <option value="Sergipe">Sergipe</option>
+                  <option value="Tocantins">Tocantins</option>
+                </select>
+                <label for="cep">Código Postal(CEP)*</label>
+                <input type="text" name="cep" id="cep" required />
+              </div>
+            </div>
+        </div>
+        <div class="box2">
+          <h1>FORMA DE PAGAMENTO*</h1>
+          <p id="errorPag"></p>
+          <div class="box-pagamento">
+            <select id="pagamento" name="pagamento" required>
+              <option value="" disabled selected>Selecione</option>
+              <option value="cartao">Cartão</option>
+              <option value="pix">Pix</option>
+            </select>
+           
+            <div class="flip-card">
+              <div class="flip-card-inner" onclick="flipcard()">
+                <div class="flip-card-front" id="front">
+                  <div class="box-numero-card">
+                    <p class="titulo-card">numero</p>
+                    <p id="card" class="numero-card">0000 0000 0000 0000</p>
+                  </div>
+                  <div class="texto-bottom">
+                    <div class="box-titular">
+                      <p class="titulo-card">nome</p>
+                      <p id ="nome-card" class="descricao-card"></p>
+                    </div>
+                    <div class="box-vencimento">
+                      <p class="titulo-card">validade</p>
+                      <p id="valid-card" class="descricao-card"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flip-card-back" id="back">
+                  <div class="box-content">
+                    <div class="box-secure-code"></div>
+                    <div class="secure-code">
+                      <p id="secure-card"></p>
+                    </div>
+                  </div>
+                  <p class="cod-name">Cód. Segurança</p>
+                </div>
+              </div>
+            </div>
+            <section class="section-form">
+              <div class="formulario">
+                <form action="" id="formulario-cartao">
+                  <div class="campo-container">
+                    <label for="nome-form">Nome</label>
+                    <input type="text" name="nome-form" id="nome-form" maxlength="27"/>
+                  </div>
+                  <div class="campo-container">
+                    <label for="numero-form">Número</label>
+                    <input type="text" name="numero-form" id="numero-form" pattern="[0-9]*" inputmode="numeric" maxlength="19">
+                  </div>
+                  <div class="campo-container">
+                    <label for="validade-form">Validade &#40MM/AA&#41</label>
+                    <input type="text" name="validade-form" id="validade-form" maxlength="5"/>
+                  </div>
+                  <div class="campo-container">
+                    <label for="codigo-form">Código</label>
+                    <input type="text" name="codigo-form" id="codigo-form" inputmode="numeric" maxlength="3"/>
+                  </div>
+                </form>
+              </div>
+            </section>
+            
+            <div id="pix">
+              <div>
+                <img src="./src/pix.png" alt="" class="pix-qrcode">
+              </div>
+              <div class="pix-texto">
+                <img src="./src/b1.png" alt="" class="pix-img">
+                <p>1. Abra o app do seu banco ou instituição financeira e entre no ambiente Pix.</p>
+                <img src="./src/b2.png" alt="" class="pix-img">
+                <p>2. Escolha a opção Pagar com QR Code e escaneie o código ao lado.</p>
+                <img src="./src/b3.png" alt="" class="pix-img">
+                <p>3. Confirme as informações e finalize o pagamento.</p>
+              </div>
+              <button type="submit" class="btn-pag" disabled>Copiar Código</button>
+            </div>
+          </div>
+        </div>
+      
+        <div class="box3">
+          <div class="box3-parte1">
+            <img src="src/ExpressoTradicional.svg" alt="Expresso Tradicional" />
+            <div>
+              <h1 id="itens-pedido"></h1>
+            </div>
+          </div>
+          <hr>
+          <div class="box3-parte2">
+            <div class="titulo">
+              <p>Total dos itens</p>
+              <p>Entrega</p>
+              <h1>Total</h1>
+            </div>
+            <div class="valores">
+              <p></p>
+              <p>Promo - Entrega grátis</p>
+              <h1></h1>
+            </div>
+          </div>
+          <div class="botao"><input type="submit" id="enviarPedido" value="Enviar  Pedido"></div>
+        </div>
+        </form>
+      </section>
+    </div>
+
+    <div id="overlay"></div>
+    <div id="modal">
+      <img src="./src/logo_white.png" alt="Logo Koffie">
+      <p>Deseja Realmente Finalizar o Pedido?</p>
+      <div id="botoes-modal">
+        <button type="button" id="btn-modal-cancelar" class="btn-modal">Cancelar</button>
+        <button type="button" id="btn-modal-confirmar" class="btn-modal">Confirmar</button>
+      </div>
+    </div>
+
+  </main>
+
+  <div class="clear"></div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-section-logo">
+        <img src="src/logo_white.png" alt="Logotipo" />
+        <p>O Sabor que Cura a Alma</p>
+        <div class="icons-social">
+          <a href=""><i class="fab fa-facebook-f"></i></a>
+          <a href=""><i class="fab fa-twitter"></i></a>
+          <a href=""><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section-endereco">
+        <h1>Endereço</h1>
+        <nav>
+          <ul>
+            <li>Avenida Central nº 2023</li>
+            <li>Setor Lugar Nenhum</li>
+            <li>Cafelândia - PR</li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-section-horarios">
+        <h1>Horários</h1>
+        <nav>
+          <ul>
+            <li>Segunda a Sexta-feira:</li>
+            <li>08h00 às 18h00.</li>
+            <li>Domingo:</li>
+            <li>08h00 às 14h00.</li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-section-contato">
+        <h1>Contato</h1>
+        <nav>
+          <ul>
+            <li><i class="fa fa-phone"></i>(99) 8888-8888</li>
+            <li><i class="fab fa-whatsapp"></i>(99) 9999-9999</li>
+            <li><i class="fa fa-envelope"></i>contato@koffie.com.br</li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="clear"></div>
+
+    </div> <!--container-->
+
+    <hr />
+    <div class="direitos-reservados">
+      <p>©Grupo Dois - PROZ | Todos os direitos reservados</p>
+    </div>
+  </footer>
+  <div class="clear"></div>
+
+  <button onclick="topFunction()" id="myBtn" title="Voltar ao topo"></button>
+
+  <script type="text/javascript" src="js/javascript.js" defer></script>
+  <script src="js/pedido.js" defer></script>
+</body>
+
+</html>
